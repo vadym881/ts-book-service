@@ -15,7 +15,7 @@ export class Library implements IBookService {
 
   getBookById(id: number): Book {
     const foundBook = this.books.find((a) => a.id === id);
-    if (!(foundBook instanceof Book)) {
+    if (!foundBook) {
       throw new Error("Book not found");
     }
     return foundBook;
@@ -32,7 +32,7 @@ export class Library implements IBookService {
   getAuthorById(id: number): Author {
     const authors: Author[] = this.getAuthors();
     const foundAuthor = authors.find((a) => a.id === id);
-    if (!(foundAuthor instanceof Author)) {
+    if (!foundAuthor) {
       throw new Error("Author not found");
     }
     return foundAuthor;
